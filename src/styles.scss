@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use '@angular/material/core/theming/theming';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+// sanaa bespoke app theme typography
+
+$config: mat.define-typography-config(
+  $font-family: var(--font-family),
+  $headline-1:
+    mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $headline-2:
+    mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $headline-3:
+    mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-6: mat.define-typography-level(18px, 26px, 500),
+  $subtitle-1: mat.define-typography-level(16px, 28px, 400),
+  $subtitle-2: mat.define-typography-level(14px, 24px, 500),
+  $body-1: mat.define-typography-level(13px, 24px, 400),
+  $body-2: mat.define-typography-level(13px, 20px, 400),
+  $caption: mat.define-typography-level(12px, 20px, 400),
+  $button: mat.define-typography-level(13px, 14px, 500),
+);
+
+:root {
+  --font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+
+  // Typography
+  --font-weight-medium: 500;
+  --font-caption: #{mat.font-weight($config, caption) #{mat.font-size(
+      $config,
+      caption
+    )}/#{mat.line-height($config, caption)} mat.font-family($config, caption)};
+  --font-body-1: #{mat.font-weight($config, body-1) #{mat.font-size(
+      $config,
+      body-1
+    )}/#{mat.line-height($config, body-1)} mat.font-family($config, body-1)};
+  --font-body-2: #{mat.font-weight($config, body-2) #{mat.font-size(
+      $config,
+      body-2
+    )}/#{mat.line-height($config, body-2)} mat.font-family($config, body-2)};
+  --font-subheading-1: #{mat.font-weight($config, subtitle-2) #{mat.font-size(
+      $config,
+      subtitle-2
+    )}/#{mat.line-height($config, subtitle-2)}
+    mat.font-family($config, subtitle-2)};
+  --font-subheading-2: #{mat.font-weight($config, subtitle-1) #{mat.font-size(
+      $config,
+      subtitle-1
+    )}/#{mat.line-height($config, subtitle-1)}
+    mat.font-family($config, subtitle-1)};
+  --font-headline: #{mat.font-weight($config, headline-5) #{mat.font-size(
+      $config,
+      headline-5
+    )}/#{mat.line-height($config, headline-5)}
+    mat.font-family($config, headline-5)};
+  --font-title: #{mat.font-weight($config, headline-6) #{mat.font-size(
+      $config,
+      headline-6
+    )}/#{mat.line-height($config, headline-6)}
+    mat.font-family($config, headline-6)};
+  --font-display-1: #{mat.font-weight($config, headline-4) #{mat.font-size(
+      $config,
+      headline-4
+    )}/#{mat.line-height($config, headline-4)}
+    mat.font-family($config, headline-4)};
+  --font-display-2: #{mat.font-weight($config, headline-3) #{mat.font-size(
+      $config,
+      headline-3
+    )}/#{mat.line-height($config, headline-3)}
+    mat.font-family($config, headline-3)};
+  --font-display-3: #{mat.font-weight($config, headline-2) #{mat.font-size(
+      $config,
+      headline-2
+    )}/#{mat.line-height($config, headline-2)}
+    mat.font-family($config, headline-2)};
+  --font-display-4: #{mat.font-weight($config, headline-1) #{mat.font-size(
+      $config,
+      headline-1
+    )}/#{mat.line-height($config, headline-1)}
+    mat.font-family($config, headline-1)};
+}
+
+// sanaa bespoke app palette hue
+$primary-palette-hue: 500;
+$accent-palette-hue: 600;
+$warn-palette-hue: 600;
+$grey-palette-hue: 600;
+
+// sanaa bespoke app palette definition
+$primary-palette: mat.define-palette(mat.$pink-palette, $primary-palette-hue);
+$accent-palette: mat.define-palette(
+    mat.$blue-grey-palette,
+    $accent-palette-hue
+);
+$warn-palette: mat.define-palette(mat.$red-palette, $warn-palette-hue);
+$grey-palette: mat.define-palette(mat.$grey-palette, $grey-palette-hue);
+
+// sanaa bespoke app theme colors from palette
+$primary-color: mat.get-color-from-palette($primary-palette);
+$accent-color: mat.get-color-from-palette($accent-palette);
+$warn-color: mat.get-color-from-palette($warn-palette);
+$grey-color: mat.get-color-from-palette($grey-palette);
+
+$theme: mat.define-light-theme(
+    (
+      color: (
+        primary: $primary-palette,
+        accent: $accent-palette,
+        warn: $warn-palette,
+      ),
+      density: -1,
+    )
+);
+
+@include mat.core();
+
+//config components themes (this was the missing config)
+@include mat.all-component-themes($theme);
+
+@include mat.button-density(0);
+@include mat.icon-density(-4);
+@include mat.input-density(-3.5);
+@include mat.select-density(-3.5);
+@include mat.form-field-density(-3.5);
+
+// config components typography
+@include mat.all-component-typographies($config);

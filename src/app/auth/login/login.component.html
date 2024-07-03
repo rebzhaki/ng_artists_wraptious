@@ -1,0 +1,109 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="400px" fxFlex.xs="100%">
+    <img src="assets/img/branding/Mix_Sue_copy.jpg" mat-card-image  alt="login_image"/>
+
+    <mat-card-header>
+      <mat-card-title> SIGN IN TO WRAPTIOUS </mat-card-title>
+
+      <mat-card-subtitle> Create something beautiful. </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form
+        [formGroup]="loginForm"
+        (submit)="login(loginForm)"
+        fxLayout="column"
+      >
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon>email</mat-icon>
+          <mat-form-field fxFlex>
+            <input
+              matInput
+              type="email"
+              placeholder="E-mail"
+              aria-label="E-mail"
+              formControlName="username"
+            />
+            <mat-error
+              *ngIf="loginForm.get('username').hasError('required')"
+              data-test="login-username-required-error"
+            >
+              E-mail is required
+            </mat-error>
+            <mat-error
+              *ngIf="loginForm.get('username').hasError('email')"
+              data-test="login-username-invalid-error"
+            >
+              E-mail is not valid
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon matPrefix>vpn_key</mat-icon>
+          <mat-form-field fxFlex>
+            <input
+              matInput
+              placeholder="Password"
+              aria-label="Password"
+              type="password"
+              formControlName="password"
+            />
+            <mat-hint>Minimum 8 characters</mat-hint>
+            <mat-error
+              *ngIf="loginForm.get('password').hasError('required')"
+              data-test="login-password-required-error"
+            >
+              Password is required
+            </mat-error>
+            <mat-error
+              *ngIf="loginForm.get('password').hasError('minlength')"
+              data-test="login-password-at-least-8-error"
+            >
+              Password should be at least 8 characters long
+            </mat-error>
+            <mat-error
+              *ngIf="loginForm.get('password').hasError('maxlength')"
+              data-test="login-password-at-most-50-error"
+            >
+              Password cannot be longer than 24 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          style="margin-top: 35px; margin-bottom: 15px"
+        >
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px">
+          <button
+            class="margin-bottom"
+            mat-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="loginForm.invalid"
+          >
+            Log In
+          </button>
+
+        </div>
+      </form>
+
+      <div *ngIf="authService.authStatus$ | async as d" style="margin: 5px auto">
+        Already Logged In: {{d.meta.LoginStatus}}
+      </div>
+
+      <button
+        class="margin-bottom"
+        style="width: 100%"
+        mat-stroked-button
+        (click)="logout()"
+        color="warn"
+        [hidden]="!authService.authStatus$.getValue().meta.LoginStatus"
+      >
+        LogOut
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

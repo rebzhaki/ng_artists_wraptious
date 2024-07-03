@@ -1,0 +1,37 @@
+<div fxLayout="row" fxLayoutAlign="start">
+  <mat-card fxFlex="400px" fxFlex.xs="100%">
+    <mat-card-content>
+      <div>
+        <img
+          class="profileImage"
+          src="assets/img/assignment/SampleAvatarImage.jpg"
+          mat-card-image
+          alt="profile_img"
+        />
+      </div>
+      <div>
+        <h2>
+          {{ currentUser.authStatus$.value.data.attributes.name }}'s Details
+        </h2>
+        <p>
+          Email:
+          <span>{{ currentUser.authStatus$.value.data.attributes.email }}</span>
+        </p>
+        <p>
+          Full Name:
+          <span>{{ currentUser.authStatus$.value.data.attributes.name }}</span>
+        </p>
+        <p>Signature: <span></span></p>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px">
+        <button
+        mat-raised-button
+        color="primary"
+        >
+          Edit Profile
+        </button>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

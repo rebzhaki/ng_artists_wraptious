@@ -1,0 +1,22 @@
+{
+  "/api/*": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/img/*": {
+    "target": "http://localhost:4200",
+    "secure": true,
+    "changeOrigin": false
+  },
+  "/v10.0/*": {
+    "target": "https://www.facebook.com",
+    "secure": true,
+    "changeOrigin": true
+  },
+  "/facebook/*": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": false
+  }
+}
