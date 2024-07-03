@@ -1,5 +1,5 @@
-<div>  
-  <mat-card fxFlex="450px" fxFlex.xs="100%">
+<div *ngIf="currentUser | async as user">  
+  <mat-card fxFlex="480px" fxFlex.xs="100%">
     <mat-card-content >
       <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
       <div>
@@ -19,15 +19,15 @@
       </div>
       <div class="userDetails">
         <h2>
-          {{ currentUser.authStatus$.value.data.attributes.name }}'s Details
+          {{ user.data.attributes.name}}'s Details
         </h2>
         <p>
           Email:
-          <span>{{ currentUser.authStatus$.value.data.attributes.email }}</span>
+          <span>{{ user.data.attributes.email }}</span>
         </p>
         <p>
           Full Name:
-          <span>{{ currentUser.authStatus$.value.data.attributes.name }}</span>
+          <span>{{ user.data.attributes.name }}</span>
         </p>
         <p>Signature: <span></span></p>
       </div>

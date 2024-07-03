@@ -41,7 +41,11 @@ mat-sidenav {
   }
 
 mat-sidenav-content{
-    margin-left: 380px !important;
+    margin-left: 300px !important;
+    margin-right: 80px;
+    overflow-x: hidden;
+    min-height: 100vh;
+    
     @media screen and (min-width: 600px) {
         padding-top: 4rem;
     }

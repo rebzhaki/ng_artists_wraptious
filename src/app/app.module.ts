@@ -21,6 +21,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatPaginator,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [
     provideAnimationsAsync(),
@@ -57,6 +63,7 @@ import { MatListModule } from '@angular/material/list';
       multi: true,
     },
     Title,
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })
