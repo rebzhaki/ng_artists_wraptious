@@ -1,15 +1,23 @@
-<div fxLayout="row" fxLayoutAlign="start">
-  <mat-card fxFlex="400px" fxFlex.xs="100%">
-    <mat-card-content>
+<div>  
+  <mat-card fxFlex="450px" fxFlex.xs="100%">
+    <mat-card-content >
+      <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
       <div>
-        <img
-          class="profileImage"
-          src="assets/img/assignment/SampleAvatarImage.jpg"
-          mat-card-image
-          alt="profile_img"
-        />
+        <a href="">
+          <img
+            class="profileImage"
+            src="assets/img/assignment/SampleAvatarImage.jpg"
+            mat-card-image
+            alt="profile_img"
+          />
+        </a>
+        <a href="" fxLayoutAlign="center">
+            <mat-icon color="primary">add_a_photo</mat-icon>
+        </a>
+            
+
       </div>
-      <div>
+      <div class="userDetails">
         <h2>
           {{ currentUser.authStatus$.value.data.attributes.name }}'s Details
         </h2>
@@ -23,7 +31,8 @@
         </p>
         <p>Signature: <span></span></p>
       </div>
-      <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="3px">
+    </div>
+      <div fxLayout="column" fxLayoutAlign="start stretch" style="margin-top: 10px">
         <button
         mat-raised-button
         color="primary"
@@ -34,4 +43,8 @@
       </div>
     </mat-card-content>
   </mat-card>
+</div>
+<div fxLayout="column" fxLayoutAlign="center center"  class="footer">
+  <p>Please contact <a href="https://www.wraptious.com/pages/contact-us" target="_blank">saleswraptious.com</a> if you wish to delete your account</p>
+  <p>Wraptious Bespoke <a href="https://artists-dev.wraptious.com/pages/f8215f44-dbcc-11ea-82ca-aee5980d6ec0" target="_blank">Terms & Conditions</a></p>
 </div>

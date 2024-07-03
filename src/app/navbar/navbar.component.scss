@@ -1,0 +1,48 @@
+.navbar{
+    background-color: #546e7a;
+    height: 30px;
+    margin-bottom: 40px;
+}
+.navbarLogo {
+    width: 100px;
+}
+
+mat-toolbar{
+    position:fixed;
+    top:0;
+    z-index: 2;
+}
+
+mat-sidenav-container {
+    height:100%;
+}
+
+mat-sidenav {
+    padding-top: 30px;
+    width: 220px;
+    @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    }
+
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: gray;
+        font-size: 14px;
+        border-bottom: 1px solid rgb(228, 222, 222);
+    }
+    .entry:hover{
+        color: #EA2769;
+    }
+    .entry span {
+        color: black;
+    }
+  }
+
+mat-sidenav-content{
+    margin-left: 380px !important;
+    @media screen and (min-width: 600px) {
+        padding-top: 4rem;
+    }
+}

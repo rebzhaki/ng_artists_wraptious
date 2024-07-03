@@ -1,0 +1,36 @@
+<div>
+        <mat-toolbar class="navbar">
+          <button mat-icon-button aria-label="Menu icon" >
+            <mat-icon>menu</mat-icon>
+          </button>
+          <img class="navbarLogo" src="assets/img/branding/wraptious-artists-logo-2.png" />
+        </mat-toolbar>
+
+        <mat-sidenav-container autosize>
+            <mat-sidenav [opened]="true" mode="side">
+              <mat-nav-list>
+                <a mat-list-item fxl class="">
+                  <span class="entry">
+                    <mat-icon>person</mat-icon>
+                    <span>Home</span>
+                  </span>
+                </a>
+                <a mat-list-item>
+                    <span class="entry">
+                      <mat-icon>list_alt</mat-icon>
+                      <span>Order History</span>
+                    </span>
+                  </a>
+                  <a mat-list-item>
+                    <span class="entry">
+                      <mat-icon>backspace</mat-icon>
+                      <span>Logout</span>
+                    </span>
+                  </a>
+              </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content>
+              <router-outlet />
+            </mat-sidenav-content>
+          </mat-sidenav-container>
+</div>
