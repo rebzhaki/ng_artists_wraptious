@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderHistoryComponent } from './order-history/components/order-history/order-history.component';
 import { authenticationGuard } from './auth/services/authentication.guard';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,16 +15,22 @@ const routes: Routes = [
     data: { title: 'Login' },
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [authenticationGuard],
-    data: { title: 'Dashboard' },
-  },
-  {
-    path: 'order-history/:id',
-    component: OrderHistoryComponent,
-    canActivate: [authenticationGuard],
-    data: { title: 'Order History' },
+    path: '',
+    component: DefaultLayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [authenticationGuard],
+        data: { title: 'Dashboard' },
+      },
+      {
+        path: 'order-history/:id',
+        component: OrderHistoryComponent,
+        canActivate: [authenticationGuard],
+        data: { title: 'Order History' },
+      },
+    ],
   },
   { path: '**', component: PageNotFoundComponent },
 ];

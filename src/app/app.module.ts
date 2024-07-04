@@ -24,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { DatePipe } from '@angular/common';
+import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DatePipe } from '@angular/common';
     OrderHistoryComponent,
     LoaderComponent,
     NavbarComponent,
+    DefaultLayoutComponent,
   ],
   imports: [
     BrowserModule,
