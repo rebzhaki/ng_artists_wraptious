@@ -23,8 +23,11 @@ mat-sidenav {
     @media screen and (min-width: 600px) {
       padding-top: 4rem;
     }
-
-    .entry{
+    @media screen and (max-width: 599px) {
+        display: none;
+        
+    }
+    .sidebarItems{
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -32,10 +35,10 @@ mat-sidenav {
         font-size: 14px;
         border-bottom: 1px solid rgb(228, 222, 222);
     }
-    .entry:hover{
+    .sidebarItems:hover{
         color: #EA2769;
     }
-    .entry span {
+    .sidebarItems span {
         color: black;
     }
   }
@@ -48,5 +51,13 @@ mat-sidenav-content{
     
     @media screen and (min-width: 600px) {
         padding-top: 4rem;
+    }
+    @media screen and (max-width: 599px) {
+        padding-top: 1rem;
+        width: 100%;
+        margin: 10%;
+        left: 0;
+        margin-left: 0 !important;
+
     }
 }

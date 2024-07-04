@@ -75,18 +75,4 @@ export class LoginComponent implements OnInit, OnDestroy {
       )
       .subscribe();
   }
-
-  logout() {
-    this.authService.logout().subscribe({
-      next(data) {
-        console.error('Logout successful', data);
-      },
-      error(error) {
-        console.error('Logout failed', error);
-      },
-      complete() {
-        console.error('Logout complete');
-      },
-    });
-  }
 }

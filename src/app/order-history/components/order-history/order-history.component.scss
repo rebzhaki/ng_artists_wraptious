@@ -12,3 +12,8 @@
 .detailsButton:hover{
     background-color: rgb(247, 246, 246);
 }
+@media screen and (max-width: 599px) {
+    .mat-elevation-z8 {
+        overflow-x: auto;
+    }
+}
